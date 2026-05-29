@@ -124,3 +124,44 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 console.log('Página de Principio y Valores - Trelew cargada correctamente');
+
+// Modal de Rueda de Prensa - Aparece al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    // Solo mostrar en desktop (viewport > 768px) para evitar problemas en móvil
+    if (window.innerWidth > 768) {
+        setTimeout(() => {
+            const modal = document.getElementById('pressModal');
+            if (modal) {
+                modal.classList.add('show');
+            }
+        }, 1500); // Mostrar después de 1.5 segundos
+    }
+    
+    // Event listener para cerrar el modal
+    const modal = document.getElementById('pressModal');
+    const closeBtn = document.querySelector('.modal-close');
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            modal.classList.remove('show');
+        });
+    }
+    
+    // Cerrar modal al hacer click fuera de la imagen
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
+    }
+    
+    // Cerrar modal con tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (modal) {
+                modal.classList.remove('show');
+            }
+        }
+    });
+});

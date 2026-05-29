@@ -1,12 +1,15 @@
-/* Variables de Color */
+/* Variables de Color - Colores Institucionales Peronistas */
 :root {
-    --primary-color: #1a472a;
-    --secondary-color: #2d6a4f;
-    --accent-color: #40916c;
-    --light-color: #f1faee;
-    --text-color: #333;
-    --border-color: #ddd;
+    --primary-color: #0066CC;
+    --secondary-color: #0052A3;
+    --accent-color: #FFD700;
+    --light-color: #F0F7FF;
+    --text-color: #000;
+    --border-color: #0066CC;
     --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --celeste: #0066CC;
+    --blanco: #FFFFFF;
+    --negro: #000000;
 }
 
 /* Reset y Estilos Generales */
@@ -626,4 +629,394 @@ body {
 
 .section {
     animation: fadeIn 0.6s ease-out;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    background-color: var(--blanco);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--negro);
+    transition: color 0.3s ease, transform 0.3s ease;
+    z-index: 1001;
+}
+
+.modal-close:hover {
+    color: var(--celeste);
+    transform: scale(1.2);
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+    .modal-content {
+        max-width: 95%;
+        max-height: 85vh;
+        padding: 15px;
+    }
+
+    .modal-close {
+        top: 10px;
+        right: 15px;
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        max-width: 100%;
+        max-height: 80vh;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .modal-image {
+        max-height: 75vh;
+    }
+
+    .modal-close {
+        top: 5px;
+        right: 10px;
+        font-size: 24px;
+    }
+}
+
+/* ============================================
+   ESTILOS PARA SECCIÓN DE LOGOS
+   ============================================ */
+
+/* Grid de Logos */
+.logos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.logo-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.logo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 102, 204, 0.15);
+    border-color: var(--celeste);
+}
+
+.logo-container {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fondos de Logos */
+.logo-celeste {
+    background: linear-gradient(135deg, #e6f1ff 0%, #cce5ff 100%);
+}
+
+.logo-blanco {
+    background: linear-gradient(135deg, #333333 0%, #1a1a1a 100%);
+}
+
+.logo-negro {
+    background: white;
+    border-bottom: 3px solid var(--celeste);
+}
+
+.logo-virch {
+    background: linear-gradient(135deg, #f0f7ff 0%, #e6f1ff 100%);
+}
+
+.logo-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.logo-image.logo-inverted {
+    filter: invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.logo-image.logo-bw {
+    filter: grayscale(100%) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.logo-info {
+    padding: 25px;
+    text-align: center;
+}
+
+.logo-info h3 {
+    font-size: 22px;
+    color: var(--celeste);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.logo-info p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Color Badge */
+.color-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    background-color: #f0f7ff;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+
+.celeste-badge {
+    background-color: #e6f1ff;
+    color: var(--celeste);
+    border: 1px solid var(--celeste);
+}
+
+.blanco-badge {
+    background-color: #f5f5f5;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.negro-badge {
+    background-color: #f0f0f0;
+    color: #000;
+    border: 1px solid #333;
+}
+
+.multi-badge {
+    background-color: #fff3e0;
+    color: #e67e22;
+    border: 1px solid #e67e22;
+}
+
+/* Grid de Colores */
+.colors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.color-item {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.color-item:hover {
+    transform: translateY(-5px);
+}
+
+.color-sample {
+    width: 100%;
+    height: 150px;
+    border-bottom: 4px solid #f0f0f0;
+}
+
+.celeste-bg {
+    background-color: var(--celeste);
+}
+
+.blanco-bg {
+    background-color: var(--blanco);
+    border: 2px solid #ddd;
+}
+
+.negro-bg {
+    background-color: var(--negro);
+}
+
+.oro-bg {
+    background-color: #FFD700;
+}
+
+.color-details {
+    padding: 20px;
+    text-align: center;
+}
+
+.color-details h3 {
+    color: var(--celeste);
+    font-size: 18px;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.color-hex {
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.color-description {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+/* Animación al cargar */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.color-item {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Responsive Logos */
+@media (max-width: 768px) {
+    .logos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .logo-container {
+        height: 200px;
+    }
+
+    .logo-info {
+        padding: 20px;
+    }
+
+    .logo-info h3 {
+        font-size: 18px;
+    }
+
+    .logo-info p {
+        font-size: 13px;
+    }
+
+    .colors-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .color-sample {
+        height: 120px;
+    }
+
+    .color-details {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .logo-container {
+        height: 180px;
+    }
+
+    .logo-info {
+        padding: 15px;
+    }
+
+    .logo-info h3 {
+        font-size: 16px;
+    }
+
+    .colors-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .color-sample {
+        height: 100px;
+    }
+
+    .color-details {
+        padding: 15px;
+    }
 }
