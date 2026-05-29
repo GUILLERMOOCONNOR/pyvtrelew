@@ -183,12 +183,6 @@ body {
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
 }
 
-@media (max-width: 768px) {
-    .hero-logo {
-        width: 120px;
-        margin-bottom: 20px;
-    }
-}
 
 @media (max-width: 480px) {
     .hero-logo {
