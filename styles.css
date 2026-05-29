@@ -176,13 +176,25 @@ body {
 }
 
 .hero-logo {
-    width: 25%;
-    max-width: 220px;
-    min-width: 80px;
+    width: 180px;
     height: auto;
     margin-bottom: 35px;
     display: block;
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+@media (max-width: 768px) {
+    .hero-logo {
+        width: 120px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-logo {
+        width: 90px;
+        margin-bottom: 15px;
+    }
 }
 
 .hero-content h2 {
