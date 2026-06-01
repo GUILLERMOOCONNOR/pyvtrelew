@@ -143,6 +143,17 @@
                 </div>
 
 
+                <!-- Rama Organizaciones Sociales -->
+                <div class="rama-card" id="rama-sociales">
+                    <div class="rama-header">
+                        <i class="fas fa-people-carry"></i>
+                        <h3>Organizaciones Sociales</h3>
+                    </div>
+                    <div class="rama-content">
+                        <p>Articulación con movimientos y organizaciones de la sociedad civil.</p>
+                    </div>
+                </div>
+
                 <!-- Rama Técnicos y Profesionales -->
                 <div class="rama-card" id="rama-tecnicos">
                     <div class="rama-header">
@@ -155,18 +166,6 @@
                             <a href="#tecnicos" class="btn-mesas">Ver Mesas Temáticas <i class="fas fa-arrow-down"></i></a>
                         </div>
                     </div>
-                </div>
-
-                <!-- Rama Organizaciones Sociales -->
-                <div class="rama-card" id="rama-sociales">
-                    <div class="rama-header">
-                        <i class="fas fa-people-carry"></i>
-                        <h3>Organizaciones Sociales</h3>
-                    </div>
-                    <div class="rama-content">
-                        <p>Articulación con movimientos y organizaciones de la sociedad civil.</p>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -401,8 +400,49 @@
             justify-content: center;
         }
         #Documentos .resource-card {
-            max-width: 420px;
+            max-width: 700px;
             width: 100%;
+        }
+
+        /* Documentos Políticos: layout horizontal en desktop */
+        @media (min-width: 640px) {
+            #Documentos .resource-card {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+                align-items: start;
+            }
+            #Documentos .resource-card h3 {
+                grid-column: 1;
+            }
+            #Documentos .resource-card > p {
+                grid-column: 1;
+                margin-top: 0;
+            }
+            #Documentos .resource-card ul {
+                grid-column: 2;
+                grid-row: 1 / 3;
+                align-self: center;
+                margin: 0;
+            }
+        }
+
+        /* Reducir espacio excesivo entre secciones */
+        #nosotros.section {
+            padding-bottom: 2rem;
+        }
+        #ramas.section {
+            padding-top: 2rem;
+        }
+
+        /* Técnicos centrado solo cuando queda en última fila */
+        #rama-tecnicos {
+            grid-column: 2;
+        }
+        @media (max-width: 900px) {
+            #rama-tecnicos {
+                grid-column: auto;
+            }
         }
 
         /* Seguinos: horizontal en desktop, vertical en móvil */
