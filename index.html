@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principios y Valores - Trelew</title>
+    <title>Principio y Valores - Trelew</title>
     <link rel="icon" type="image/jpeg" href="logo Principios y Valores.jpg">
 
     <!-- Open Graph / WhatsApp preview -->
@@ -25,7 +25,7 @@
         <div class="container">
             <div class="logo">
                 <div>
-                    <h1>Principios y Valores</h1>
+                    <h1>Principio y Valores</h1>
                     <p class="subtitle">No existe para el peronismo más que una sola clase de hombres: los que trabajan</p>
                 </div>
             </div>
@@ -65,7 +65,7 @@
             <h2 class="section-title">Quiénes Somos</h2>
             <div class="content-text">
                 <p>
-                    Principios y Valores de Trelew es un espacio peronista que reconocemos en el compañero Mario Guillermo Moreno a nuestro Conductor y referente político.
+                    Principio y Valores de Trelew es un espacio peronista que reconocemos en el compañero Mario Guillermo Moreno a nuestro Conductor y referente político.
                     Confiamos en integrar a nuestra ciudad de Trelew en un Plan Económico y  Plan de Gobierno Peronista con la doctrina como elemento ordenar
                     Nos proponemos trabajar por políticas inclusivas, transparentes y orientadas al bien común de nuestra comunidad.
                 </p>
@@ -282,6 +282,24 @@
                     </div>
                 </div>
 
+                <!-- Mesa Aluar -->
+                <div class="rama-card">
+                    <div class="rama-header">
+                        <i class="fas fa-industry"></i>
+                        <h3>Aluar</h3>
+                    </div>
+                    <div class="rama-content">
+                        <p>Seguimiento y propuestas vinculadas a la industria alumínica regional.</p>
+                        <div class="rama-info">
+                            <h4>Responsable:</h4>
+                            <p class="rama-nombre">[NOMBRE]</p>
+                            <div class="rama-contacto">
+                                <p><strong>Teléfono:</strong> <a href="tel:+542965000000" class="rama-telefono">+54 (2965) 000-0000</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Mesa Turismo Social -->
                 <div class="rama-card">
                     <div class="rama-header">
@@ -436,40 +454,22 @@
     <!-- Footer / Contacto -->
     <footer id="contacto" class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Principios y Valores</h3>
-                    <p>Peronismo doctrinario - Trelew, Chubut</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Seguinos</h3>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/p/DYpYMt5kZ58/" target="_blank" title="Instagram">
-                            <i class="fab fa-instagram"></i>
-                            <span>@PrincipioYValores</span>
-                        </a>
-                        <a href="https://www.facebook.com/principiosy.valores.trelew/" target="_blank" title="Facebook">
-                            <i class="fab fa-facebook"></i>
-                            <span>Principios y Valores</span>
-                        </a>
-                        <a href="https://wa.me/542804684383" target="_blank" title="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                            <span>+54 280 468 4383</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Contacto</h3>
-                    <p>Email: <a href="mailto:contacto@principioyvalores.ar">pyvvirch@gmail.com</a></p>
-                    <p>Teléfono: <a href="tel:542804684383">+54 (280) 468-4383</a></p>
-                    <p>Trelew, Chubut, Argentina</p>
-                </div>
+            <div class="footer-social-row">
+                <a href="https://www.instagram.com/p/DYpYMt5kZ58/" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                    <span>@PrincipioYValores</span>
+                </a>
+                <a href="https://www.facebook.com/principiosy.valores.trelew/" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook"></i>
+                    <span>Principio y Valores</span>
+                </a>
+                <a href="https://wa.me/542804684383" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>+54 280 468 4383</span>
+                </a>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2026 Principios y Valores. Todos los derechos reservados.</p>
+                <p>&copy; 2026 Principio y Valores. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -496,6 +496,36 @@
             transition: background 0.2s, opacity 0.2s;
         }
         .btn-mesas:hover { background: rgba(255,255,255,0.15); }
+
+        .footer-social-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem 0 1.5rem;
+            flex-wrap: wrap;
+        }
+        .footer-social-row a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: inherit;
+            text-decoration: none;
+            font-size: 1rem;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+        .footer-social-row a:hover { opacity: 1; }
+        .footer-social-row i { font-size: 1.4rem; }
+
+        @media (max-width: 600px) {
+            .footer-social-row {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+        }
     </style>
 </body>
 </html>
