@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principios y Valores - Trelew</title>
+    <link rel="icon" type="image/jpeg" href="logo Principios y Valores.jpg">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pyvtrelew.ar/">
+    <meta property="og:title" content="Principio y Valores - Trelew">
+    <meta property="og:description" content="Peronismo doctrinario. Por la felicidad del pueblo y la grandeza de la patria.">
+    <meta property="og:image" content="https://pyvtrelew.ar/logo%20Principios%20y%20Valores.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ── Lightbox ── */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9000;
+            background: rgba(0,0,0,0.93);
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox.active { display: flex; }
+        .lb-img-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #lbImg {
+            max-width: 88vw;
+            max-height: 88vh;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+            user-select: none;
+        }
+        .lb-counter {
+            position: absolute;
+            bottom: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.45);
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+        }
+        .lb-close {
+            position: fixed;
+            top: 1rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            line-height: 1;
+            opacity: 0.65;
+            transition: opacity 0.2s;
+            z-index: 9001;
+        }
+        .lb-close:hover { opacity: 1; }
+        .lb-nav {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 4rem;
+            cursor: pointer;
+            padding: 0 1rem;
+            opacity: 0.45;
+            transition: opacity 0.2s;
+            user-select: none;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .lb-nav:hover { opacity: 1; }
+        @media (max-width: 600px) {
+            .lb-nav { font-size: 2.5rem; padding: 0 0.4rem; }
+            #lbImg  { max-width: 96vw; max-height: 80vh; }
+        }
+
+        /* ── Botones btn-mesas ── */
+        .btn-mesas {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 4px;
+            color: inherit;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: background 0.2s, opacity 0.2s;
+        }
+        .btn-mesas:hover { background: rgba(255,255,255,0.15); }
+
+        /* ── Documentos centrado ── */
+        #Documentos .resources-grid { display: flex; justify-content: center; }
+        #Documentos .resource-card  { max-width: 700px; width: 100%; }
+        @media (min-width: 640px) {
+            #Documentos .resource-card {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+                align-items: start;
+            }
+            #Documentos .resource-card h3  { grid-column: 1; }
+            #Documentos .resource-card > p { grid-column: 1; margin-top: 0; }
+            #Documentos .resource-card ul  { grid-column: 2; grid-row: 1/3; align-self: center; margin: 0; }
+        }
+
+        /* ── Espacio Nosotros / Ramas ── */
+        #nosotros.section { padding-bottom: 2rem; }
+        #ramas.section    { padding-top: 2rem; }
+
+        /* ── Técnicos centrado desktop ── */
+        #rama-tecnicos { grid-column: 2; }
+        @media (max-width: 900px) { #rama-tecnicos { grid-column: auto; } }
+
+        /* ── Footer social ── */
+        .footer-section { text-align: center; }
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            justify-content: center;
+            gap: 0.75rem 1.25rem;
+        }
+        .social-links a { display: inline-flex; align-items: center; gap: 0.6rem; width: auto; }
+        @media (max-width: 480px) {
+            .social-links { grid-template-columns: 1fr; align-items: center; }
+        }
+
+        /* ── WhatsApp flotante ── */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 8999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #25D366;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .whatsapp-float:hover { background: #1ebe5d; transform: translateY(-2px); }
+        .whatsapp-float__icon { font-size: 1.3rem; }
+    </style>
+</head>
+<body>
+
+    <!-- ══ NAVBAR ══ -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div>
+                    <h1>Principios y Valores</h1>
+                    <p class="subtitle">No existe para el peronismo más que una sola clase de hombres: los que trabajan</p>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li class="dropdown">
+                    <a href="#ramas" class="dropdown-toggle">Ramas <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" data-rama="politica">Política</a>
+                        <a href="#" data-rama="femenina">Rama Femenina</a>
+                        <a href="#" data-rama="sindical">Rama Sindical</a>
+                        <a href="#" data-rama="juventud">Juventud</a>
+                        <a href="#" data-rama="empresarial">Rama Empresarial</a>
+                        <a href="#tecnicos">Técnicos y Profesionales</a>
+                        <a href="#" data-rama="sociales">Organizaciones Sociales</a>
+                    </div>
+                </li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#Documentos">Documentos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ══ HERO ══ -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="logo Principios y Valores.jpg" alt="Principio y Valores" class="hero-logo">
+            <h2>Peronistas de Principios y Valores Trelew</h2>
+            <p>Por la felicidad del pueblo y la grandeza de la patria</p>
+        </div>
+    </section>
+
+    <!-- ══ NOSOTROS ══ -->
+    <section id="nosotros" class="section">
+        <div class="container">
+            <h2 class="section-title">Quiénes Somos</h2>
+            <div class="content-text">
+                <p>Principios y Valores de Trelew es un espacio peronista que reconocemos en el compañero Mario Guillermo Moreno a nuestro Conductor y referente político. Confiamos en integrar a nuestra ciudad de Trelew en un Plan Económico y Plan de Gobierno Peronista con la doctrina como elemento ordenador. Nos proponemos trabajar por políticas inclusivas, transparentes y orientadas al bien común de nuestra comunidad.</p>
+                <p>Nuestros principios fundamentales están cimentados en la doctrina, las veinte verdades y los principios de la creación. Nos referenciamos en la gesta sanmartiniana, el bienestar y la armonía de nuestro pueblo, la reivindicación de nuestras Malvinas Argentinas y el respeto a nuestra celeste y blanca.</p>
+                <p>Creemos en la importancia de la educación, el trabajo, la integración nacional, el desarrollo industrial, la salud pública, la planificación urbana y la proyección de la ciudad para hacer de Trelew un punto de referencia en nuestra Patagonia Argentina.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ RAMAS ══ -->
+    <section id="ramas" class="section">
+        <div class="container">
+            <h2 class="section-title">Nuestras Ramas</h2>
+            <p class="section-subtitle">Como nos organizamos en el Movimiento Peronista</p>
+            <div class="ramas-container">
+                <div class="rama-card" id="rama-politica">
+                    <div class="rama-header"><i class="fas fa-landmark"></i><h3>Rama Política</h3></div>
+                    <div class="rama-content"><p>Conducción política y dirección estratégica de nuestro espacio.</p></div>
+                </div>
+                <div class="rama-card" id="rama-femenina">
+                    <div class="rama-header"><i class="fas fa-venus"></i><h3>Rama Femenina</h3></div>
+                    <div class="rama-content"><p>Espacios de participación y empoderamiento de las mujeres peronistas.</p></div>
+                </div>
+                <div class="rama-card" id="rama-sindical">
+                    <div class="rama-header"><i class="fas fa-handshake"></i><h3>Rama Sindical</h3></div>
+                    <div class="rama-content"><p>Articulación con los trabajadores y organizaciones sindicales.</p></div>
+                </div>
+                <div class="rama-card" id="rama-juventud">
+                    <div class="rama-header"><i class="fas fa-heart"></i><h3>Rama Juventud</h3></div>
+                    <div class="rama-content"><p>Formación y participación de jóvenes peronistas en la política.</p></div>
+                </div>
+                <div class="rama-card" id="rama-empresarial">
+                    <div class="rama-header"><i class="fas fa-briefcase"></i><h3>Rama Empresarial</h3></div>
+                    <div class="rama-content"><p>Articulación con empresarios y emprendedores peronistas.</p></div>
+                </div>
+                <div class="rama-card" id="rama-sociales">
+                    <div class="rama-header"><i class="fas fa-people-carry"></i><h3>Organizaciones Sociales</h3></div>
+                    <div class="rama-content"><p>Articulación con movimientos y organizaciones de la sociedad civil.</p></div>
+                </div>
+                <div class="rama-card" id="rama-tecnicos">
+                    <div class="rama-header"><i class="fas fa-flask"></i><h3>Técnicos y Profesionales</h3></div>
+                    <div class="rama-content">
+                        <p>Participación de profesionales y técnicos en la construcción política.</p>
+                        <div style="margin-top:1rem; text-align:center;">
+                            <a href="#tecnicos" class="btn-mesas">Ver Mesas Temáticas <i class="fas fa-arrow-down"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ TÉCNICOS ══ -->
+    <section id="tecnicos" class="section section-light">
+        <div class="container">
+            <h2 class="section-title">Técnicos y Profesionales</h2>
+            <p class="section-subtitle">Mesas temáticas de la rama</p>
+            <div class="ramas-container">
+                <div class="rama-card">
+                    <div class="rama-header"><i class="fas fa-bolt"></i><h3>Energía</h3></div>
+                    <div class="rama-content"><p>Análisis y propuestas en materia energética para la región.</p></div>
+                </div>
+                <div class="rama-card">
+                    <div class="rama-header"><i class="fas fa-fish"></i><h3>Pesca y Agroindustria</h3></div>
+                    <div class="rama-content"><p>Desarrollo del sector pesquero y agroindustrial patagónico.</p></div>
+                </div>
+                <div class="rama-card">
+                    <div class="rama-header"><i class="fas fa-mountain"></i><h3>Minería</h3></div>
+                    <div class="rama-content"><p>Políticas mineras sustentables con perspectiva nacional y regional.</p></div>
+                </div>
+                <div class="rama-card">
+                    <div class="rama-header"><i class="fas fa-map-marked-alt"></i><h3>Turismo Social</h3></div>
+                    <div class="rama-content"><p>Promoción del turismo accesible y políticas de turismo social.</p></div>
+                </div>
+                <div class="rama-card">
+                    <div class="rama-header"><i class="fas fa-water"></i><h3>Recurso Hídrico</h3></div>
+                    <div class="rama-content"><p>Gestión y planificación del agua en el Valle Inferior del Río Chubut.</p></div>
+                </div>
+                <div class="rama-card">
+                    <div class="rama-header"><i class="fas fa-graduation-cap"></i><h3>Educación</h3></div>
+                    <div class="rama-content"><p>Propuestas educativas para el desarrollo local y la formación ciudadana.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ GALERÍA ══ -->
+    <!-- El grid muestra las 8 fotos originales.
+         El lightbox navega por las 35 (8 originales + 27 nuevas). -->
+    <section id="galeria" class="section section-light">
+        <div class="container">
+            <h2 class="section-title">Galería</h2>
+            <div class="gallery" id="lightboxGallery">
+                <div class="gallery-item" data-index="1">
+                    <img src="Guillote y Marita UNPSJB.jpg" alt="Acto UNPSJB">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item" data-index="3">
+                    <img src="rueda pensa 02 de mayo.jpg" alt="Rueda de Prensa">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item" data-index="4">
+                    <img src="catedra1.jpeg" alt="Cátedra">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item" data-index="7">
+                    <img src="marchauniversitaria.jpeg" alt="Marcha Universitaria">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lista oculta con TODAS las fotos para el lightbox -->
+    <div id="allPhotos" style="display:none;">
+        <span data-src="alejandro.jpeg" data-alt="Alejandro"></span>
+        <span data-src="Guillote y Marita UNPSJB.jpg" data-alt="Acto UNPSJB"></span>
+        <span data-src="reunion basica 30-05.jpeg" data-alt="Reunión Básica"></span>
+        <span data-src="rueda pensa 02 de mayo.jpg" data-alt="Rueda de Prensa"></span>
+        <span data-src="catedra1.jpeg" data-alt="Cátedra"></span>
+        <span data-src="merienda.jpeg" data-alt="Merienda"></span>
+        <span data-src="compasconmarita.jpeg" data-alt="Compañeros con Marita"></span>
+        <span data-src="marchauniversitaria.jpeg" data-alt="Marcha Universitaria"></span>
+        <span data-src="IMG-20260326-WA0055.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0067.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0068.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0069.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0070.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0071.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0072.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0073.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0074.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0076.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0077.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0078.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0079.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0080.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0081.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0082.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0083.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0084.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0085.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0086.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0087.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0088.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0090.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0092.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0093.jpg" data-alt="Evento"></span>
+        <span data-src="IMG-20260601-WA0096.jpg" data-alt="Evento"></span>
+    </div>
+
+    <!-- ══ DOCUMENTOS ══ -->
+    <section id="Documentos" class="section">
+        <div class="container">
+            <h2 class="section-title">Documentos</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3><i class="fas fa-book"></i> Material de estudio</h3>
+                    <p>Accede a nuestros principales documentos y propuestas políticas.</p>
+                    <ul class="resource-links">
+                        <li><a href="https://drive.google.com/file/d/14dsxnYKZ9EYarq1fYWeJYnwGBwwUKH2X/view" target="_blank"><i class="fas fa-external-link-alt"></i> Plan Económico</a></li>
+                        <li><a href="https://drive.google.com/file/d/13B9XnYJ2rnrEtHg-LLwNqd3deYBO3i69/view" target="_blank"><i class="fas fa-external-link-alt"></i> Plan de Gobierno</a></li>
+                        <li><a href="https://www.escuelasuperiorperonista.com/doc/1.1.DOCTRINA.PERONISTA.1948.pdf" target="_blank"><i class="fas fa-external-link-alt"></i> La Doctrina Peronista</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ FOOTER / CONTACTO ══ -->
+    <footer id="contacto" class="footer">
+        <div class="container">
+            <div class="footer-section">
+                <h3>Seguinos</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/p/DYpYMt5kZ58/" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i><span>@PrincipioYValores</span>
+                    </a>
+                    <a href="https://www.facebook.com/principiosy.valores.trelew/" target="_blank" title="Facebook">
+                        <i class="fab fa-facebook"></i><span>Principio y Valores</span>
+                    </a>
+                    <a href="https://wa.me/542804684383" target="_blank" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i><span>+54 280 468 4383</span>
+                    </a>
+                    <a href="https://youtube.com/@pyvvirch?si=W2uy2z835M9ro01c" target="_blank" title="YouTube">
+                        <i class="fab fa-youtube"></i><span>Canal de YouTube</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Principio y Valores. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ══ LIGHTBOX ══ -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Visor de fotos">
+        <button class="lb-close" id="lbClose" aria-label="Cerrar">&times;</button>
+        <button class="lb-nav lb-prev" id="lbPrev" aria-label="Anterior">&#8249;</button>
+        <div class="lb-img-wrap">
+            <img id="lbImg" src="" alt="">
+            <div class="lb-counter" id="lbCounter"></div>
+        </div>
+        <button class="lb-nav lb-next" id="lbNext" aria-label="Siguiente">&#8250;</button>
+    </div>
+
+    <!-- ══ WHATSAPP FLOTANTE ══ -->
+    <a href="https://wa.me/542804684383?text=Hola%2C%20quiero%20sumarme%20a%20Principios%20y%20Valores"
+       class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Afiliate por WhatsApp">
+        <i class="fab fa-whatsapp whatsapp-float__icon"></i>
+        <span class="whatsapp-float__label">Me sumo</span>
+    </a>
+
+    <script src="script.js"></script>
+
+    <script>
+    (function () {
+        // Construir lista completa de fotos desde #allPhotos
+        const allPhotos = Array.from(
+            document.querySelectorAll('#allPhotos span')
+        ).map(function (el) {
+            return { src: el.dataset.src, alt: el.dataset.alt };
+        });
+
+        const lightbox  = document.getElementById('lightbox');
+        const lbImg     = document.getElementById('lbImg');
+        const lbCounter = document.getElementById('lbCounter');
+        const lbClose   = document.getElementById('lbClose');
+        const lbPrev    = document.getElementById('lbPrev');
+        const lbNext    = document.getElementById('lbNext');
+        let current = 0;
+
+        function open(index) {
+            current = index;
+            lbImg.src = allPhotos[current].src;
+            lbImg.alt = allPhotos[current].alt;
+            lbCounter.textContent = (current + 1) + ' / ' + allPhotos.length;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function close() {
+            lightbox.classList.remove('active');
+            lbImg.src = '';
+            document.body.style.overflow = '';
+        }
+
+        function prev() { open((current - 1 + allPhotos.length) % allPhotos.length); }
+        function next() { open((current + 1) % allPhotos.length); }
+
+        // Click en miniaturas del grid — abre en el índice correcto
+        document.querySelectorAll('#lightboxGallery .gallery-item').forEach(function (item) {
+            item.addEventListener('click', function () {
+                open(parseInt(item.dataset.index));
+            });
+        });
+
+        lbClose.addEventListener('click', close);
+        lbPrev.addEventListener('click',  prev);
+        lbNext.addEventListener('click',  next);
+
+        lightbox.addEventListener('click', function (e) {
+            if (e.target === lightbox) close();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape')     close();
+            if (e.key === 'ArrowLeft')  prev();
+            if (e.key === 'ArrowRight') next();
+        });
+
+        // Swipe táctil
+        let touchStartX = 0;
+        lightbox.addEventListener('touchstart', function (e) {
+            touchStartX = e.changedTouches[0].clientX;
+        }, { passive: true });
+        lightbox.addEventListener('touchend', function (e) {
+            const diff = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
+        });
+    })();
+    </script>
+
+</body>
+</html>
