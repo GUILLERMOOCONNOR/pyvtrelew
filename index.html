@@ -28,32 +28,54 @@
             background: rgba(0,0,0,0.93);
             align-items: center;
             justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
         }
         .lightbox.active { display: flex; }
-        .lb-img-wrap {
-            position: relative;
+
+        /* Fila central: botón ← | imagen | botón → */
+        .lb-row {
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 0;
+            width: 100%;
+            max-width: 1100px;
+            padding: 0 0.5rem;
+        }
+
+        /* Área de imagen: tamaño fijo para que no "salte" */
+        .lb-img-wrap {
+            width: min(76vw, 820px);
+            height: min(72vh, 600px);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
         #lbImg {
-            max-width: 88vw;
-            max-height: 88vh;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
             object-fit: contain;
             border-radius: 4px;
             box-shadow: 0 8px 40px rgba(0,0,0,0.6);
             user-select: none;
+            display: block;
         }
+
+        /* Contador debajo de la imagen */
         .lb-counter {
-            position: absolute;
-            bottom: -2rem;
-            left: 50%;
-            transform: translateX(-50%);
+            text-align: center;
             color: rgba(255,255,255,0.45);
             font-size: 0.78rem;
             letter-spacing: 0.1em;
             white-space: nowrap;
+            min-height: 1.2em;
         }
+
         .lb-close {
             position: fixed;
             top: 1rem;
@@ -69,23 +91,31 @@
             z-index: 9001;
         }
         .lb-close:hover { opacity: 1; }
+
+        /* Botones laterales: ancho fijo para que la imagen siempre esté centrada */
         .lb-nav {
-            background: none;
+            background: rgba(255,255,255,0.08);
             border: none;
             color: #fff;
-            font-size: 4rem;
+            font-size: 3rem;
             cursor: pointer;
-            padding: 0 1rem;
-            opacity: 0.45;
-            transition: opacity 0.2s;
+            width: 56px;
+            min-width: 56px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            opacity: 0.55;
+            transition: opacity 0.2s, background 0.2s;
             user-select: none;
-            line-height: 1;
             flex-shrink: 0;
         }
-        .lb-nav:hover { opacity: 1; }
+        .lb-nav:hover { opacity: 1; background: rgba(255,255,255,0.18); }
+
         @media (max-width: 600px) {
-            .lb-nav { font-size: 2.5rem; padding: 0 0.4rem; }
-            #lbImg  { max-width: 96vw; max-height: 80vh; }
+            .lb-nav { font-size: 2rem; width: 38px; min-width: 38px; height: 60px; }
+            .lb-img-wrap { width: 90vw; height: 60vh; }
         }
 
         /* ── Botones btn-mesas ── */
@@ -271,28 +301,20 @@
                     <div class="rama-content"><p>Desarrollo de políticas sociales inclusivas para los sectores más vulnerables.</p></div>
                 </div>
                 <div class="rama-card">
-                    <div class="rama-header"><i class="fas fa-industry"></i><h3>Producción y Trabajo</h3></div>
-                    <div class="rama-content"><p>Fomento del empleo genuino y el desarrollo productivo regional.</p></div>
+                    <div class="rama-header"><i class="fas fa-industry"></i><h3>Producción, Industria y Trabajo</h3></div>
+                    <div class="rama-content"><p>Fomento del empleo genuino, el desarrollo industrial y el crecimiento productivo regional.</p></div>
                 </div>
                 <div class="rama-card">
                     <div class="rama-header"><i class="fas fa-city"></i><h3>Planeamiento e Infraestructura</h3></div>
                     <div class="rama-content"><p>Planificación urbana e infraestructura para el crecimiento ordenado de Trelew.</p></div>
                 </div>
                 <div class="rama-card">
-                    <div class="rama-header"><i class="fas fa-fish"></i><h3>Pesca y Agroindustria</h3></div>
-                    <div class="rama-content"><p>Desarrollo del sector pesquero y agroindustrial patagónico.</p></div>
+                    <div class="rama-header"><i class="fas fa-water"></i><h3>Recurso Hídrico</h3></div>
+                    <div class="rama-content"><p>Gestión y planificación del agua en el Valle Inferior del Río Chubut.</p></div>
                 </div>
                 <div class="rama-card">
-                    <div class="rama-header"><i class="fas fa-mountain"></i><h3>Minería</h3></div>
-                    <div class="rama-content"><p>Políticas mineras sustentables con perspectiva nacional y regional.</p></div>
-                </div>
-                <div class="rama-card">
-                    <div class="rama-header"><i class="fas fa-graduation-cap"></i><h3>Educación</h3></div>
-                    <div class="rama-content"><p>Propuestas educativas para el desarrollo local y la formación ciudadana.</p></div>
-                </div>
-                <div class="rama-card">
-                    <div class="rama-header"><i class="fas fa-heartbeat"></i><h3>Salud</h3></div>
-                    <div class="rama-content"><p>Políticas de salud pública orientadas al acceso universal y la prevención.</p></div>
+                    <div class="rama-header"><i class="fas fa-graduation-cap"></i><h3>Educación y Salud</h3></div>
+                    <div class="rama-content"><p>Propuestas educativas y políticas de salud pública para el desarrollo local y el bienestar ciudadano.</p></div>
                 </div>
             </div>
         </div>
@@ -410,12 +432,14 @@
     <!-- ══ LIGHTBOX ══ -->
     <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Visor de fotos">
         <button class="lb-close" id="lbClose" aria-label="Cerrar">&times;</button>
-        <button class="lb-nav lb-prev" id="lbPrev" aria-label="Anterior">&#8249;</button>
-        <div class="lb-img-wrap">
-            <img id="lbImg" src="" alt="">
-            <div class="lb-counter" id="lbCounter"></div>
+        <div class="lb-row">
+            <button class="lb-nav lb-prev" id="lbPrev" aria-label="Anterior">&#8249;</button>
+            <div class="lb-img-wrap">
+                <img id="lbImg" src="" alt="">
+            </div>
+            <button class="lb-nav lb-next" id="lbNext" aria-label="Siguiente">&#8250;</button>
         </div>
-        <button class="lb-nav lb-next" id="lbNext" aria-label="Siguiente">&#8250;</button>
+        <div class="lb-counter" id="lbCounter"></div>
     </div>
 
     <!-- ══ WHATSAPP FLOTANTE ══ -->
